@@ -11,6 +11,7 @@ namespace ConsoleApp1
     class TowerOfHanoi
     {
         int m_numdiscs;
+        public int Steps;
         public TowerOfHanoi()
         {
             numdiscs = 0;
@@ -38,6 +39,7 @@ namespace ConsoleApp1
                 movetower(n - 1, from, other, to);
                 Console.WriteLine("Move disk {0} from tower {1} to tower {2}", n, from, to);
                 movetower(n - 1, other, to, from);
+                 Steps++;
             }
         }
     }
@@ -50,7 +52,9 @@ namespace ConsoleApp1
             Console.Write("Enter the number of discs: ");
             Cnumdiscs = Console.ReadLine();
             T.numdiscs = Convert.ToInt32(Cnumdiscs);
+             Console.WriteLine(" Number of Steps: {0} ", Math.Pow(2,Convert.ToInt32( Cnumdiscs))-1 );
             T.movetower(T.numdiscs, 1, 3,2);
+            Console.Write(" Number of Steps: {0} ", T.Steps);
             Console.ReadLine();
             return 0;
         }
